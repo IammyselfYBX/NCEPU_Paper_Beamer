@@ -1,0 +1,104 @@
+% 华电毕业论文封面 
+\documentclass[UTF8,a4paper]{ctexart}
+\usepackage{geometry} % 设置页边距，页面大小
+\geometry{left=2.5cm,right=2.0cm,top=2.50cm,bottom=2.0cm}
+\linespread{1.3}%调整行间距
+\usepackage{graphicx} % 引入图片
+\pagestyle{plain}    
+\usepackage{setspace} %行间距
+\usepackage{array} %
+\usepackage{booktabs} %调整表格线与上下内容的间隔
+\usepackage{multirow}
+\usepackage{hyperref} %加入书签跳转
+\usepackage{fontspec} %引入字体Times New Roman字体
+%\setmainfont{Times New Roman}             %设置正文字体为Times New Roman
+\usepackage{abstract} % 修改摘要
+
+
+%\usepackage[fontset=windows]{ctex}
+\usepackage{xeCJK} %调用系统中已安装的字体
+\setCJKmainfont{SimSun}
+\setmainfont{Times New Roman}
+
+%% 目录格式设置
+\usepackage{tocloft}      %必须这么写，否则会报错
+\renewcommand{\contentsname}{\centerline{\Large{\heiti{目\quad\quad 录}}}}
+%\renewcommand{\cftchapleader}{\cftdotfill{0.6}} %设置chapter条目的引导点间距
+\renewcommand{\cftsecleader}{\cftdotfill{0.6}}
+\renewcommand{\cftsubsecleader}{\cftdotfill{0.6}}
+\renewcommand{\cftsubsubsecleader}{\cftdotfill{0.6}}
+%\renewcommand{\cftchapfont}{\hts}    %设置chapter条目的字体
+\renewcommand{\cftsecfont}{\heiti}    %设置section条目的字体
+\renewcommand{\cftsecfont}{\Large}    %设置section条目的四号
+\renewcommand{\cftsubsecfont}{\songti} %设置subsection条目的字体
+\renewcommand{\cftsubsecfont}{\large} %设置subsection条目的字体
+\renewcommand{\cftsubsubsecfont}{\songti} %设置subsection条目的字体
+\renewcommand{\cftsubsubsecfont}{\large} %设置subsection条目的字体
+
+% 插入代码块
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+ %language=bash,                % the language of the code
+ columns=fixed,       
+% numbers=left,                                        % 在左侧显示行号
+% numberstyle=\tiny\color{gray},                       % 设定行号格式
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+% stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+}
+
+
+% 参考文献
+\usepackage{cite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  正文
+\begin{document}
+%% 封面
+\input{part/cover}      
+%%摘要
+%%%% 中文摘要
+\input{part/abstract/chinese}
+%%%% 英文摘要
+\input{part/abstract/english}
+%% 目录
+\newpage
+\tableofcontents
+\thispagestyle{empty}
+
+%% 章节
+\newpage
+\pagenumbering{arabic}
+%%%%定制标题样式
+%%%%% section
+\CTEXsetup[name={第,章 },format={\centering\heiti\zihao{-2}},aftername={\enspace},beforeskip={24bp},afterskip={18bp}]{section} %name选项中不要使用中文逗号 \zihao(-2)字号小二
+%%%%% subsection
+\CTEXsetup[format={\raggedright\songti\zihao{-3}},aftername={\enspace},beforeskip={24bp},afterskip={6bp}]{subsection}
+%%%%% subsubsection
+\CTEXsetup[format={\raggedright\songti\zihao{4}},aftername={\enspace},beforeskip={12bp},afterskip={6bp}]{subsubsection}
+
+\input{part/background}  % 介绍背景
+\input{part/significance}% 意义
+\input{part/RISC-V_principle} %介绍RISC-V模拟器的原理
+\input{part/process} % 介绍实验过程
+\input{part/compare}  %与前人比较
+
+
+根据 David A. Patterson 的著作\cite{2006Computer}
+
+%% 参考文献
+\bibliographystyle{plain}
+\bibliography{Ref}
+%\bibliographystyle{plain}指定参考文献的呈现方式，常见的预设样式的可选项有8种，分别是：
+%% 1. plain，按字母的顺序排列，比较次序为作者、年度和标题；
+%% 2. unsrt，样式同plain，只是按照引用的先后排序；
+%% 3. alpha，用作者名首字母+年份后两位作标号，以字母顺序排序；
+%% 4. abbrv，类似plain，将月份全拼改为缩写，更显紧凑；
+%% 5. ieeetr，国际电气电子工程师协会期刊样式；
+%% 6. acm，美国计算机学会期刊样式；
+%% 7. siam，美国工业和应用数学学会期刊样式；
+%% 8. apalike，美国心理学学会期刊样式；
+\end{document}

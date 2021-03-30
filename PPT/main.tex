@@ -1,0 +1,92 @@
+\documentclass{beamer}
+\usepackage{ctex, hyperref}
+\usepackage{calligra}
+\usepackage[T1]{fontenc}
+\author{杨秉学}
+\title{NCEPU Beamer Theme}
+\subtitle{毕业设计开题报告}
+\institute{华北电力大学控制与计算机工程学院}
+\date{\today}
+\usepackage{Ncepu}
+
+\begin{document}
+
+\kaishu
+\begin{frame}
+	\titlepage
+	\begin{figure}[htpb]
+		\begin{center}
+        \includegraphics[width=0.2\linewidth]{pic/Ncepu_University_Logo.eps}
+		\end{center}
+	\end{figure}
+\end{frame}
+\begin{frame}
+\tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+
+\section{课题背景}
+
+\begin{frame}{用Beamer很高大上？}
+\begin{itemize}
+\item 大家都会\LaTeX{}
+\item 中文支持请选择 Xe\LaTeX{} 编译选项
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.4\textheight]{pic/gentoo_Logo.eps}
+        \caption{系统环境}
+    \end{figure}
+\end{itemize}
+\end{frame}
+
+\section{研究现状}
+
+\subsection{Beamer主题分类}
+
+\begin{frame}
+\begin{itemize}
+\item 有一些 \LaTeX{} 自带的
+\item 有一些Tsinghua的
+\item 本模板来源自 \newline \url{https://www.latexstudio.net/archives/4051.html}
+\item 但是最初的 \href{http://far.tooold.cn/post/latex/beamertsinghua}{\color{purple}{link}} \cite{origin}已经失效了
+\item 这是我在16-17年做的一些ppt：\href{https://github.com/Trinkle23897/oi_slides}{\color{purple}{戳我}}
+\end{itemize}
+\end{frame}
+
+\section{研究内容}
+
+\subsection{美化主题}
+
+\begin{frame}{这一份主题与原始的THU Beamer Theme区别在于}
+\begin{itemize}
+\item 顶栏的小点变成一行而不是多行
+\item 中文采用楷书
+\item 剩下我改了啥我也忘了……我16年魔改的，都四年过去了（x
+\item 更多该模板的功能请参考 \url{https://www.latexstudio.net/archives/4051.html}
+\end{itemize}
+\end{frame}
+
+\section{计划进度}
+\begin{frame}
+	\begin{itemize}
+\item 一月：完成文献调研
+\item 二月：复现并评测各种Beamer主题美观程度
+\item 三、四月：美化THU Beamer主题
+\item 五月：论文撰写
+	\end{itemize}
+\end{frame}
+
+\section{参考文献}
+
+\begin{frame}[allowframebreaks]
+\bibliography{ref}
+\bibliographystyle{alpha}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+{\Huge\calligra Thanks!}
+\end{center}
+\end{frame}
+
+\end{document}
