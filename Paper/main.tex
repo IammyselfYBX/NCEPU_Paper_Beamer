@@ -1,10 +1,19 @@
-% 华电毕业论文封面 
 \documentclass[UTF8,a4paper]{ctexart}
 \usepackage{geometry} % 设置页边距，页面大小
 \geometry{left=2.5cm,right=2.0cm,top=2.50cm,bottom=2.0cm}
 \linespread{1.3}%调整行间距
 \usepackage{graphicx} % 引入图片
-\pagestyle{plain}    
+%\usepackage[justification=centering]{caption} % 图片的caption居中
+\usepackage[indent]{caption} % 设置图片的 caption 换行缩进
+% Inkscape矢量图
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{calc} %调整大小
+
+
+\pagestyle{plain}    % 没有页眉，页脚是居中的页码；
 \usepackage{setspace} %行间距
 \usepackage{array} %
 \usepackage{booktabs} %调整表格线与上下内容的间隔
@@ -14,11 +23,20 @@
 %\setmainfont{Times New Roman}             %设置正文字体为Times New Roman
 \usepackage{abstract} % 修改摘要
 
-
 %\usepackage[fontset=windows]{ctex}
 \usepackage{xeCJK} %调用系统中已安装的字体
 \setCJKmainfont{SimSun}
 \setmainfont{Times New Roman}
+%% 支持汉字加粗
+\let\heiti\relax % 黑体
+\newCJKfontfamily\heiti{SimHei}[AutoFakeBold]
+\setCJKsansfont{SimHei}[AutoFakeBold]
+
+\let\songti\relax % 宋体
+\newCJKfontfamily\songti{SimSun}[AutoFakeBold]
+\setCJKmainfont{SimSun}[AutoFakeBold]  
+
+
 
 %% 目录格式设置
 \usepackage{tocloft}      %必须这么写，否则会报错
@@ -34,6 +52,10 @@
 \renewcommand{\cftsubsecfont}{\large} %设置subsection条目的字体
 \renewcommand{\cftsubsubsecfont}{\songti} %设置subsection条目的字体
 \renewcommand{\cftsubsubsecfont}{\large} %设置subsection条目的字体
+
+
+% 数学公式
+\usepackage{amsmath}
 
 % 插入代码块
 \usepackage{listings}
@@ -54,6 +76,8 @@
 
 % 参考文献
 \usepackage{cite}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  以下是论文内容
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  正文
 \begin{document}
@@ -80,14 +104,14 @@
 %%%%% subsubsection
 \CTEXsetup[format={\raggedright\songti\zihao{4}},aftername={\enspace},beforeskip={12bp},afterskip={6bp}]{subsubsection}
 
-\input{part/background}  % 介绍背景
-\input{part/significance}% 意义
-\input{part/RISC-V_principle} %介绍RISC-V模拟器的原理
-\input{part/process} % 介绍实验过程
-\input{part/compare}  %与前人比较
+\input{part/background}\newpage  % 课题研究背景和意义
+\input{part/RISC-V}\newpage % 介绍RISC-V架构内容
+\input{part/Qemu_principle}\newpage %介绍Qemu模拟器的原理
+\input{part/process}\newpage % 相关工作
+% 性能评估
+\input{part/compare}\newpage  %与前人比较
 
 
-根据 David A. Patterson 的著作\cite{2006Computer}
 
 %% 参考文献
 \bibliographystyle{plain}
